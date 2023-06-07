@@ -8,6 +8,20 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class Player extends Character {
 
+    static instance: Player = null;
+    private isAlive: boolean = true;
+
+    public static getInstance(): Player {
+        return Player.instance;
+    }
+    protected onLoad() {
+        Player.instance = this;
+    }
+    public getAlive(): boolean {
+        return this.isAlive;
+      }
+
+
     @property(Joystick)
     joystick: Joystick = null;
 
@@ -16,6 +30,8 @@ export default class Player extends Character {
 
     @property
     private isMoving: boolean = false;
+
+
 
     protected update(dt: number) {
         const direction = this.joystick.direction; // Lấy vector hướng từ direction của joystick

@@ -1,6 +1,6 @@
 
 import Character from "./Character";
-import Enemy_1 from "./Enemy_1";
+import GameManager from "./GameManager";
 
 const {ccclass, property} = cc._decorator;
 
@@ -8,14 +8,14 @@ const {ccclass, property} = cc._decorator;
 export default class Blades extends cc.Component {
 
     @property(Character)
-    private parent: Character;
+    private Parent_Blades: Character = null;
 
     onCollisionEnter(other: cc.Collider, self: cc.Collider) {
-        if ((other.getComponent(Character) != this.parent)) {
-          
-            console.log("contact");
+        if ((other.getComponent(Character) != this.Parent_Blades)) {          
             other.getComponent(Character).onHit();
-            this.parent.onLevelUp();
+            // GameManager.getInstance().setPrefabReady(true);
+
+            // this.Parent_Blades.onLevelUp();
         }   
       }
     

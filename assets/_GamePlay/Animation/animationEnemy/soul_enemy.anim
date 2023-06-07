@@ -100,7 +100,7 @@
   "events": [
     {
       "frame": 1,
-      "func": "",
+      "func": "Despawn_Effect",
       "params": []
     }
   ]

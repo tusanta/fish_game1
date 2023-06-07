@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Enemy_effect",
+    "_name": "Blades",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -24,23 +24,26 @@
       },
       {
         "__id__": 3
+      },
+      {
+        "__id__": 4
       }
     ],
     "_prefab": {
-      "__id__": 4
+      "__id__": 5
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 248,
-      "g": 244,
-      "b": 244,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 150,
-      "height": 150
+      "height": 70
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -51,8 +54,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        511.426,
-        83.629,
+        142.122,
+        26.23,
         0,
         0,
         0,
@@ -72,8 +75,8 @@
     "_skewX": 0,
     "_skewY": 0,
     "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
+    "_groupIndex": 5,
+    "groupIndex": 5,
     "_id": ""
   },
   {
@@ -92,7 +95,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "e073dede-abbf-42cd-8887-3a8e50544b45"
+      "__uuid__": "438406aa-85f6-4ac2-9468-6b0b42340643"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -109,22 +112,52 @@
     "_id": ""
   },
   {
-    "__type__": "cc.Animation",
+    "__type__": "cc.PolygonCollider",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "_defaultClip": {
-      "__uuid__": "fccfc777-38ca-41c4-bf3a-aca6d2d0675f"
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
     },
-    "_clips": [
+    "points": [
       {
-        "__uuid__": "fccfc777-38ca-41c4-bf3a-aca6d2d0675f"
+        "__type__": "cc.Vec2",
+        "x": -51.2,
+        "y": 3.3
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -42,
+        "y": -12.8
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 61.6,
+        "y": 0.1
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -54.3,
+        "y": 17.2
       }
     ],
-    "playOnLoad": true,
+    "_id": ""
+  },
+  {
+    "__type__": "68dfa+ez69Jo5PnnxaCfxmQ",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "parent": null,
     "_id": ""
   },
   {
