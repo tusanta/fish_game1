@@ -19,21 +19,24 @@ export default class GameManager extends cc.Component {
     @property(Joystick)
     stick: Joystick = null;
 
-    @property(cc.Node)
-    food: cc.Node = null;
 
     @property(cc.Vec2)
     gravity: cc.Vec2 = cc.v2(0, 0);
 
+    @property(cc.Label)
+    scoreDisplay: cc.Label = null;
 
     
-    public isPrefabReady(): boolean { //tạo biến sẵn sàng xuất hiện cho prefab (true & false)
-      return this.prefabReady;
-  }
+  
 
-  public setPrefabReady(ready: boolean) { //dặt trạng thái cho biển: true = xuất hiện, false = ẩn.
-      this.prefabReady = ready;
-  }
+    
+//     public isPrefabReady(): boolean { //tạo biến sẵn sàng xuất hiện cho prefab (true & false)
+//       return this.prefabReady;
+//   }
+
+//   public setPrefabReady(ready: boolean) { //dặt trạng thái cho biển: true = xuất hiện, false = ẩn.
+//       this.prefabReady = ready;
+//   }
 
      onLoad() {
         cc.director.getPhysicsManager().enabled = true;
@@ -42,5 +45,12 @@ export default class GameManager extends cc.Component {
         manager.enabled = true;
 
      }
+
+    //  public gainScore() {
+        
+    //     this.scoreDisplay.string = "score: " + this.Score;
+       
+    //   }
+    
 
 }
