@@ -61,8 +61,8 @@ export default class Player extends Character {
 
     // va chạm khung hình 
 
-    const minX = -cc.winSize.width / 2.3; //cc.winSize.width : chiều rộng cửa sổ trò chơi
-    const maxX = cc.winSize.width / 2.3;
+    const minX = -cc.winSize.width / 2.25; //cc.winSize.width : chiều rộng cửa sổ trò chơi
+    const maxX = cc.winSize.width / 2.25;
     const minY = -cc.winSize.height / 2.5; // winSize.height : chiều cao cửa sổ trò  chơi
     const maxY = cc.winSize.height / 3;
 

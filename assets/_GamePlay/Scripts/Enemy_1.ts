@@ -10,9 +10,10 @@ export default class Enemy_1 extends Character {
   @property
   private speed: number = 10; // Tốc độ di chuyển
 
+  @property(cc.Vec3)
+  public startPosition: cc.Vec3 = cc.v3(0 , 0 , 0); // Điểm bắt đầu
+  private targetPosition: cc.Vec3 = cc.v3(0 , 0 , 0); // Điểm đến
   @property
-  private startPosition: cc.Vec3; // Điểm bắt đầu
-  private targetPosition: cc.Vec3; // Điểm đến
   private isMoving: boolean = false; // Trạng thái di chuyển
 
   protected onLoad() {
@@ -40,9 +41,13 @@ export default class Enemy_1 extends Character {
       }
     }
 
-    if (distance <= 130 && this.player.node.active) { // nếu vị trí của enemy <= 150 và active của player = true thì: ...
+    if (distance <= 150 && this.player.node.active) { // nếu vị trí của enemy <= 150 và active của player = true thì: ...
       console.log("==distance==");
       this.targetPosition = playerPos; // hướng di chuyển enemy là vị trí của player.
+      const newDirection = this.player.node.position.sub(this.node.position); // Tạo một vector hướng mới từ vị trí hiện tại đến vị trí của player
+      this.startPosition = this.node.position;  // Đặt điểm bắt đầu là vị trí hiện tại của Enemy
+      this.targetPosition = this.player.node.position.add(newDirection);  // Đặt điểm đến là vị trí của player + vector hướng mới để đi qua vị trí của player
+      // this.isMoving = false;
     }
 
     const rotationAngle = Math.atan2(direction.y, direction.x) * 180 / Math.PI;  // Xoay Enemy theo hướng di chuyển
@@ -57,23 +62,14 @@ export default class Enemy_1 extends Character {
     }
   }
   private onNextPos() {
-    if (this.player.node.active) {
-      console.log("enemy_run");
-      const newDirection = this.player.node.position.sub(this.node.position); // Tạo một vector hướng mới từ vị trí hiện tại đến vị trí của player
-      this.startPosition = this.node.position;  // Đặt điểm bắt đầu là vị trí hiện tại của Enemy
-      this.targetPosition = this.player.node.position.add(newDirection);  // Đặt điểm đến là vị trí của player + vector hướng mới để đi qua vị trí của player
-      // this.isMoving = false;
-    } else {
-      this.targetPosition = this.randomMovement(); // player chết ==> enemy di chuyển random.
-      console.log("enemy_run_random");
-    }
+    this.targetPosition = this.randomMovement(); // enemy di chuyển random.
     this.isMoving = true; // Bắt đầu di chuyển tới điểm đến mới
   }
 
   private randomMovement() {
-    const minX = -cc.winSize.width / 3;
-    const maxX = cc.winSize.width / 3;
-    const minY = -cc.winSize.height / 3;
+    const minX = -cc.winSize.width / 2;
+    const maxX = cc.winSize.width / 2;
+    const minY = -cc.winSize.height / 2;
     const maxY = cc.winSize.height / 3;
 
     if (this.node.x < minX) { // nếu tọa độ x của Enemy < minx

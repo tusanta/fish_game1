@@ -1,0 +1,61 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "Blades_5",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.35,
+  "sample": 20,
+  "speed": 0.5,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "e1eefbbe-cc3d-411e-a2fc-ce1841eb43c8"
+            }
+          },
+          {
+            "frame": 0.05,
+            "value": {
+              "__uuid__": "fe00f3c4-51e5-4a11-94f4-e5f464fa0d5b"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "8c357cb4-5036-4558-8ce7-ec12fdd46b01"
+            }
+          },
+          {
+            "frame": 0.15,
+            "value": {
+              "__uuid__": "758d4d2b-ab8f-4a32-a3f0-6b51c55c1e79"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "3d5ffd95-4546-4ee6-ba08-7bf94779f332"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "4f707ee9-7e66-451f-a69e-d51bbd222445"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "33d9d964-713f-44bb-b36b-d3f66db7eea8"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

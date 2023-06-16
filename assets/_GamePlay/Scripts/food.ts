@@ -1,20 +1,21 @@
 import Character from "./Character";
 import GameManager from "./GameManager";
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class food extends cc.Component {
+export default class Food extends cc.Component {
 
     @property(GameManager)
-    GameManager: GameManager = null;
+    private gameManager: GameManager = null;
+
+   
 
     onCollisionEnter(other: cc.Collider, self: cc.Collider) {
-        if(other.node.group == "Player"){
+        if (other.node.group == "Player") {
             this.node.active = false;
-
-            // this.GameManager.gainScore();
-        }
+            GameManager.instance.gainScore();
         }
     }
+}
 
 

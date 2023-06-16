@@ -1,56 +1,48 @@
-import Joystick from "./joystick";
-import food from "./food";
-const {ccclass, property} = cc._decorator;
+import Character from "./Character";
+import Blades_all from "./Blades_all";
 
+const { ccclass, property } = cc._decorator;
 @ccclass
 export default class GameManager extends cc.Component {
 
-
- private static instance: GameManager = null;
- private prefabReady: boolean = false;
-
-    public static getInstance(): GameManager {
-        if (!GameManager.instance) {
-            GameManager.instance = new GameManager();
-        }
-        return GameManager.instance;
-    }
-
-    @property(Joystick)
-    stick: Joystick = null;
-
-
-    @property(cc.Vec2)
-    gravity: cc.Vec2 = cc.v2(0, 0);
-
+    public static instance: GameManager = null;
+    
     @property(cc.Label)
-    scoreDisplay: cc.Label = null;
+    ScoreLabel: cc.Label = null;
+
+    @property
+    Score: number = 0;
 
     
-  
-
-    
-//     public isPrefabReady(): boolean { //tạo biến sẵn sàng xuất hiện cho prefab (true & false)
-//       return this.prefabReady;
-//   }
-
-//   public setPrefabReady(ready: boolean) { //dặt trạng thái cho biển: true = xuất hiện, false = ẩn.
-//       this.prefabReady = ready;
-//   }
-
-     onLoad() {
+    onLoad() {
         cc.director.getPhysicsManager().enabled = true;
         // cc.director.getPhysicsManager().gravity = this.gravity
         var manager = cc.director.getCollisionManager();
         manager.enabled = true;
+        GameManager.instance = this;
+    }
 
-     }
+    public gainScore() {
+        this.Score += 1;
+        const scoreDisplay = cc.find("Canvas/Main Camera/ScoreLabel").getComponent(cc.Label);
+        scoreDisplay.string = "score: " + this.Score;
 
-    //  public gainScore() {
-        
-    //     this.scoreDisplay.string = "score: " + this.Score;
-       
-    //   }
-    
+        if (this.Score === 5) {
+            Blades_all.instance.onLevelUp(5);   
+        } else if (this.Score === 10) {
+            Blades_all.instance.onLevelUp(10);
+
+        }else if(this.Score === 15){
+            Blades_all.instance.onLevelUp(15);
+        }else if(this.Score === 20){
+            Blades_all.instance.onLevelUp(20);
+        }
+
+
+
+
+    }
+
+
 
 }

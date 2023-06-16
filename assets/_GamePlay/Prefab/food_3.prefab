@@ -30,13 +30,10 @@
       },
       {
         "__id__": 5
-      },
-      {
-        "__id__": 6
       }
     ],
     "_prefab": {
-      "__id__": 7
+      "__id__": 6
     },
     "_opacity": 255,
     "_color": {
@@ -144,16 +141,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "_id": ""
-  },
-  {
-    "__type__": "4cfa5MfvGxMmpro5XPpJGJC",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
+    "gameManager": null,
     "_id": ""
   },
   {
@@ -183,7 +171,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "75dca7fc-aeb9-48fa-b8a0-647956a521e3"
     },
     "fileId": "",
     "sync": false

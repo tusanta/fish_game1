@@ -5,7 +5,6 @@ const { ccclass, property } = cc._decorator;
 export default class FoodEnemy extends cc.Component {
     private static instance: FoodEnemy = null;
 
-
     @property(cc.Prefab)
     private prefab: cc.Prefab = null;
     private pool: cc.NodePool = null
