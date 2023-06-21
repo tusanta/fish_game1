@@ -11,8 +11,8 @@ export default class Enemy_1 extends Character {
   private speed: number = 10; // Tốc độ di chuyển
 
   @property(cc.Vec3)
-  public startPosition: cc.Vec3 = cc.v3(0 , 0 , 0); // Điểm bắt đầu
-  private targetPosition: cc.Vec3 = cc.v3(0 , 0 , 0); // Điểm đến
+  public startPosition: cc.Vec3 = cc.v3(0, 0, 0); // Điểm bắt đầu
+  private targetPosition: cc.Vec3 = cc.v3(0, 0, 0); // Điểm đến
   @property
   private isMoving: boolean = false; // Trạng thái di chuyển
 

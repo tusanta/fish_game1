@@ -5,8 +5,8 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class Food extends cc.Component {
 
-    @property(GameManager)
-    private gameManager: GameManager = null;
+    // @property(GameManager)
+    // private gameManager: GameManager = null;
 
    
 

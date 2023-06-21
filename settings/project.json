@@ -5,7 +5,8 @@
     "food",
     "camera",
     "Enemy",
-    "Blades"
+    "Blades",
+    "level"
   ],
   "collision-matrix": [
     [
@@ -54,6 +55,15 @@
       false,
       false,
       true,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
       false
     ]
   ],

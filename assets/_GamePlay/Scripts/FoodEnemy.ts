@@ -1,4 +1,3 @@
-
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -7,7 +6,7 @@ export default class FoodEnemy extends cc.Component {
 
     @property(cc.Prefab)
     private prefab: cc.Prefab = null;
-    private pool: cc.NodePool = null
+    private pool: cc.NodePool = null;
 
     onLoad() {
         FoodEnemy.instance = this;
@@ -28,4 +27,6 @@ export default class FoodEnemy extends cc.Component {
     public putEnemyFood(EnemyFood: cc.Node) {
         this.pool.put(EnemyFood);
     }
+ 
+    
 }

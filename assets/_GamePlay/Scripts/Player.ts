@@ -15,17 +15,23 @@ export default class Player extends Character {
   }
   protected onLoad() {
     Player.instance = this;
+    this.speed = 5; // giá trị speed khởi đầu của player
+
+  }
+
+  public getPlayerSpeed(){ // truy cập giá trị speed của player
+    return this.speed += 1;
   }
 
   @property(Joystick)
   joystick: Joystick = null;
 
+
   @property
-  speed: number = 100;
+  speed: number = 0;
 
   @property
   private isMoving: boolean = false;
-
 
 
   protected update(dt: number) {
@@ -44,26 +50,24 @@ export default class Player extends Character {
     const rotationAngle = Math.atan2(direction.y, direction.x) * 180 / Math.PI; // Math.atan2() được sử dụng để tính toán góc giữa hai điểm (direction.y, direction.x), và sau đó chuyển đổi từ radian sang độ bằng cách nhân với 180 và chia cho Math.PI.
     this.node.angle = rotationAngle; // gán giá trị góc quay rotationAngle cho thuộc tính angle của node (Player), để xoay Player theo hướng tương ứng.
 
-
     const posX = this.speed * direction.x; // tính toán giá trị di chuyển theo phương x 
     const posY = this.speed * direction.y; // tính toán giá trị di chuyển theo phương y
 
     if (posX > 0) { // quay Player theo hướng di chuyển.
-      this.node.setScale(1, 1)
+      this.node.setScale(1, 1);
+
     }
     else {
-      this.node.setScale(1, -1)
+      this.node.setScale(1, -1);
     }
 
     this.node.x += posX; //  cập nhật giá trị tọa độ x để di chuyển theo phương x.
     this.node.y += posY; //  cập nhật giá trị tọa độ y để di chuyển theo phương y.
 
-
     // va chạm khung hình 
-
-    const minX = -cc.winSize.width / 2.25; //cc.winSize.width : chiều rộng cửa sổ trò chơi
-    const maxX = cc.winSize.width / 2.25;
-    const minY = -cc.winSize.height / 2.5; // winSize.height : chiều cao cửa sổ trò  chơi
+    const minX = -cc.winSize.width / 2.16; //cc.winSize.width : chiều rộng cửa sổ trò chơi
+    const maxX = cc.winSize.width / 2.16;
+    const minY = -cc.winSize.height / 2.22; // winSize.height : chiều cao cửa sổ trò  chơi
     const maxY = cc.winSize.height / 3;
 
     if (this.node.x < minX) { // nếu tọa độ x của player < minx
