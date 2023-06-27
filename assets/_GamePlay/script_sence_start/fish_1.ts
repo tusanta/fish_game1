@@ -1,4 +1,3 @@
-import fish_2 from "./fish_2";
 
 const { ccclass, property } = cc._decorator;
 
@@ -6,7 +5,7 @@ const { ccclass, property } = cc._decorator;
 export default class fish_1 extends cc.Component {
 
    protected onLoad(): void {
-    this.moveTo(this.node, new cc.Vec3(0, 150, 0), 3);
+    this.moveTo(this.node, new cc.Vec3(0, 50, 0), 3);
 
    }
    public moveTo(fish_1: cc.Node, targetPosition: cc.Vec3, duration: number): void {

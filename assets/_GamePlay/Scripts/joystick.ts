@@ -6,6 +6,11 @@ const { ccclass, property } = cc._decorator;
 export default class joystick extends cc.Component {
 
     @property(cc.Node)
+    stick_demo: cc.Node = null;
+    @property(cc.Node)
+    speed_start: cc.Node = null;
+
+    @property(cc.Node)
     stick: cc.Node = null; // khai báo biến stick
 
     @property
@@ -17,6 +22,7 @@ export default class joystick extends cc.Component {
     onLoad() {
         // Ẩn joystick 
         this.node.active = false;
+        
 
         /// tạo event toch tại nút cha (this.node.parent)
         this.node.parent.on(cc.Node.EventType.TOUCH_START, this.on_stick_start, this);
@@ -25,7 +31,10 @@ export default class joystick extends cc.Component {
         this.node.parent.on(cc.Node.EventType.TOUCH_CANCEL, this.on_stick_end, this);
     }
 
-    private on_stick_start(event: cc.Touch) {  // sự kiện chạm vào joystick
+    public on_stick_start(event: cc.Touch) {  // sự kiện chạm vào joystick
+
+        this.stick_demo.active = false;
+        this.speed_start.active = true;
 
         // Hiển thị joystick tại vị trí click
 

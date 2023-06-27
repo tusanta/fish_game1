@@ -4,11 +4,15 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class up_speed extends cc.Component {
-     static instance: up_speed = null;
+    static instance: up_speed = null;
 
 
     @property
     speed: number = 0;
+    @property(cc.Node)
+    hand: cc.Node = null;
+    @property(cc.Node)
+    string: cc.Node = null;
 
     @property
     private speedCount: number = 0;
@@ -22,6 +26,8 @@ export default class up_speed extends cc.Component {
     }
 
     public on_click_start(event: Touch) {
+        this.hand.active = false;
+        this.string.active = false;
         if (this.speedCount >= this.maxSpeedCount) {
             return;
         }
@@ -39,14 +45,14 @@ export default class up_speed extends cc.Component {
 
     }
 
-    public onDespawn_speed(){
+    public onDespawn_speed() {
         this.node.active = false;
     }
-protected update(dt: number): void {
-    if(Player.getInstance().node.active == false){
-        this.onDespawn_speed();
+    protected update(dt: number): void {
+        if (Player.getInstance().node.active == false) {
+            this.onDespawn_speed();
+        }
     }
-}
 
 
 }

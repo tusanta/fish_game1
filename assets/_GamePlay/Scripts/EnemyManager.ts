@@ -1,62 +1,43 @@
-// import Player from "./Player";
+import Player from "./Player";
+import Enemy_1 from "./Enemy_1";
 
+const { ccclass, property } = cc._decorator;
+@ccclass
+export default class EnemyManager extends cc.Component {
 
-// const {ccclass, property} = cc._decorator;
+    // @property(Player)
+    // player: Player;
+    @property(cc.Node)
+    win: cc.Node = null;
 
-// @ccclass
-// export default class EnemyManager extends cc.Component {
+    @property(cc.Node)
+    wave_1: cc.Node = null;
 
-//     @property(cc.Node)
-//     Enemy: cc.Node = null;
+    @property(Enemy_1)
+    EnemyList: Enemy_1[] = [];
 
-//     @property
-//     EnemyDuration : number = 100;
+    @property
+    public waveCount: number = 1;
 
-//     @property(Player)
-//     player: Player;
+    protected update(dt: number): void {
+        if(this.EnemyList.length <= 0 && this.waveCount == 1){
+            // this.win.active = true;
 
-
-//     onLoad () {
-//         this.getNewEnemy();
-//     }
-
-
-//     //random enemy
-//     public getRanEnemyPos(){
-//         let randX = 0;
-//         let randY = 0;
-//         const maxX = this.node.width / 2;
-//         const maxY = this.node.height / 2;
-//         randX = (Math.random() - 0.5) * 2 * maxX;
-//         randY = (Math.random() - 0.5) * 2 * maxY;
-//         return cc.v2(randX, randY);
-//     }
-
-//     // new Enemy
-//     public getNewEnemy(){
-//         let newEnemy = cc.instantiate(this.Enemy);
-//         this.node.addChild(newEnemy);
-//         let startPos = this.getRanEnemyPos();
-//         newEnemy.setPosition(startPos);
-//         let moveLeft = cc.moveBy(this.EnemyDuration, cc.v2(-400,0));
-//         // let moveRight = cc.moveBy(this.EnemyDuration, cc.v2(0,1500));
-
-//         let resetPos = cc.callFunc(function(){
-//             newEnemy.x = startPos.x;
-//             newEnemy.y = this.getRanEnemyPos();
-//           }, this);
-
-//         let moveAction = cc.repeatForever(cc.sequence(moveLeft, resetPos));
-//         newEnemy.runAction(moveAction);
-//         // let moveAction2 = cc.repeatForever(cc.sequence(moveRight, resetPos));
-//         // newEnemy.runAction(moveAction2);
-
-//     }
-
-   
+        }     
+    }
+//     public AddToArray(Enemy: Enemy_1) {
+//         if (!this.EnemyList.includes(Enemy)) {
+//           this.EnemyList.push(Enemy);
+//         }
+//       }
     
-
-
-
-//     // update (dt) {}
+//       public RemoveFromArray(Enemy: Enemy_1) {
+//         const index = this.EnemyList.indexOf(Enemy);
+//         if (index !== -1) {
+//           this.EnemyList.splice(index, 1);
+//         }
 // }
+
+
+}
+

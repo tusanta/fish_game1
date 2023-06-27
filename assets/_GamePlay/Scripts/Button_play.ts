@@ -12,6 +12,8 @@ protected onLoad(): void {
     cc.director.preloadScene("Save_sence");
     this.node.on("touchstart", () => {
       cc.director.loadScene("Save_sence");
+      cc.director.resume();
+
     });
   }
   

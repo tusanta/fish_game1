@@ -15,7 +15,7 @@ export default class Player extends Character {
   }
   protected onLoad() {
     Player.instance = this;
-    this.speed = 5; // giá trị speed khởi đầu của player
+    this.speed = 3; // giá trị speed khởi đầu của player
 
   }
 
