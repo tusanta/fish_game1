@@ -31,7 +31,7 @@ export default class fish_2 extends cc.Component {
     protected update(dt: number): void {
         const distance = this.fish_1.node.position;
         const posX = distance.x
-        if (posX >= 0) {
+        if (posX >= 50) {
             this.node.setScale(-1, 1);
         }
 

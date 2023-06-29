@@ -9,18 +9,19 @@ const { ccclass, property } = cc._decorator;
 export default class Player extends Character {
 
   static instance: Player = null;
+  
 
   public static getInstance(): Player {
     return Player.instance;
   }
   protected onLoad() {
     Player.instance = this;
-    this.speed = 3; // giá trị speed khởi đầu của player
+    this.speed = 500; // giá trị speed khởi đầu của player
 
   }
 
-  public getPlayerSpeed(){ // truy cập giá trị speed của player
-    return this.speed += 1;
+  public getPlayerSpeed() { // truy cập giá trị speed của player
+    return this.speed += 100;
   }
 
   @property(Joystick)
@@ -50,8 +51,8 @@ export default class Player extends Character {
     const rotationAngle = Math.atan2(direction.y, direction.x) * 180 / Math.PI; // Math.atan2() được sử dụng để tính toán góc giữa hai điểm (direction.y, direction.x), và sau đó chuyển đổi từ radian sang độ bằng cách nhân với 180 và chia cho Math.PI.
     this.node.angle = rotationAngle; // gán giá trị góc quay rotationAngle cho thuộc tính angle của node (Player), để xoay Player theo hướng tương ứng.
 
-    const posX = this.speed * direction.x; // tính toán giá trị di chuyển theo phương x 
-    const posY = this.speed * direction.y; // tính toán giá trị di chuyển theo phương y
+    const posX = this.speed * direction.x * dt; // tính toán giá trị di chuyển theo phương x 
+    const posY = this.speed * direction.y * dt; // tính toán giá trị di chuyển theo phương y
 
     if (posX > 0) { // quay Player theo hướng di chuyển.
       this.node.setScale(1, 1);
@@ -83,4 +84,6 @@ export default class Player extends Character {
     }
 
   }
+
+  
 }

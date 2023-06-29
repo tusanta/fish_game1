@@ -5,7 +5,7 @@ const { ccclass, property } = cc._decorator;
 export default class fish_1 extends cc.Component {
 
    protected onLoad(): void {
-    this.moveTo(this.node, new cc.Vec3(0, 50, 0), 3);
+    this.moveTo(this.node, new cc.Vec3(50, 100, 0), 3);
 
    }
    public moveTo(fish_1: cc.Node, targetPosition: cc.Vec3, duration: number): void {

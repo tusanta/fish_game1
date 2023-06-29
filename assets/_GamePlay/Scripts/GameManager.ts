@@ -18,6 +18,12 @@ export default class GameManager extends cc.Component {
     @property(cc.Node)
     win: cc.Node = null;
 
+    @property(cc.Node)
+    nextLevel: cc.Node = null;
+
+    @property(cc.Animation)
+    btnNextLv: cc.Animation = null;
+
     onLoad() {
         cc.director.getPhysicsManager().enabled = true;
         var manager = cc.director.getCollisionManager();
@@ -39,16 +45,25 @@ export default class GameManager extends cc.Component {
         } else if (this.Score === 20) {
             Blades_all.instance.onLevelUp(20);
         } else if(this.Score === 42){
-            this.win.active = true;
             Player.instance.node.active = false;
             score.instance.onDespawn();
+            this.scheduleOnce(() => {
+                this.win.active = true;
+            }, 0.5);
+            this.scheduleOnce(() => {
+                this.win.active = false;
+            }, 3);
+            this.scheduleOnce(() => {
+                this.nextLevel.active = true;
 
+            }, 3.5);
+            this.scheduleOnce(() => {
+                this.btnNextLv.play("Button_nextLv");
 
+            }, 4.5);
 
         }
 
     }
-
-
 
 }

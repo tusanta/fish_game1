@@ -1,0 +1,57 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "animation_up",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.3333333333333333,
+  "sample": 60,
+  "speed": 0.5,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "image": {
+        "props": {
+          "y": [
+            {
+              "frame": 0,
+              "value": -950
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": 50
+            }
+          ]
+        }
+      },
+      "fish.io": {
+        "props": {
+          "y": [
+            {
+              "frame": 0,
+              "value": -1150
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": -150
+            }
+          ]
+        }
+      },
+      "button_all": {
+        "props": {
+          "y": [
+            {
+              "frame": 0,
+              "value": -1050
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": -50
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

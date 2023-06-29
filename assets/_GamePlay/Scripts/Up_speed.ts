@@ -31,7 +31,7 @@ export default class up_speed extends cc.Component {
         if (this.speedCount >= this.maxSpeedCount) {
             return;
         }
-        this.speed += 1;
+        this.speed += 100;
         const speedUpdate = Player.getInstance().getPlayerSpeed();
         const speedReturn = speedUpdate + this.speed;
         this.node.setScale(cc.v2(0.8, 0.8));

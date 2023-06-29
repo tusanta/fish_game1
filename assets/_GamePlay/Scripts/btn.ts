@@ -1,7 +1,5 @@
 
-
-const {ccclass, property} = cc._decorator;
-
+const { ccclass, property } = cc._decorator;
 @ccclass
 export default class btn extends cc.Component {
 
@@ -14,9 +12,9 @@ export default class btn extends cc.Component {
     @property(cc.Animation)
     animation: cc.Animation = null;
 
-   public btnDown(){
-    this.animation.play("scale_btn");
-   }
+    public btnDown() {
+        this.animation.play("animation_down");
+    }
 
- 
+
 }
