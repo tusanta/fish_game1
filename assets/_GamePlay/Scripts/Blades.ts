@@ -1,10 +1,8 @@
 import Character from "./Character";
-import GameManager from "./GameManager";
-
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class Blades extends cc.Component {
+export default class Blades extends Character {
 
     public static instance: Blades = null;
 
@@ -12,11 +10,11 @@ export default class Blades extends cc.Component {
         Blades.instance = this;
     }
     @property(Character)
-    private Parent_Blades: Character = null;
+    public Parent_Blades: Character = null;
 
     onCollisionEnter(other: cc.Collider, self: cc.Collider) {
         if ((other.getComponent(Character) != this.Parent_Blades)) {
-            other.getComponent(Character).onHit();
+          other.getComponent(Character).onHit();
         }
     }
 

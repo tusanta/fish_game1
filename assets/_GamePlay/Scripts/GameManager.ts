@@ -1,6 +1,7 @@
 import Blades_all from "./Blades_all";
 import Player from "./Player";
 import score from "./score";
+import Menu from "./Menu";
 
 
 const { ccclass, property } = cc._decorator;
@@ -47,6 +48,7 @@ export default class GameManager extends cc.Component {
         } else if(this.Score === 42){
             Player.instance.node.active = false;
             score.instance.onDespawn();
+            Menu.instance.node.active = false;
             this.scheduleOnce(() => {
                 this.win.active = true;
             }, 0.5);

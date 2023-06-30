@@ -15,7 +15,6 @@ export default class makePlayer_2 extends cc.Component {
 
    @property
    public isBoolean : Boolean = false;
-   
     protected onLoad(): void {
         makePlayer_2.instance = this;
 

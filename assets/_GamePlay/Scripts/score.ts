@@ -10,6 +10,10 @@ export default class score extends cc.Component {
     }
     public onDespawn() {
         this.node.active = false;
+
+    }
+    public onScore() {
+        this.node.active = true;
     }
 
 

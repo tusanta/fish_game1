@@ -1,8 +1,9 @@
-import btn from "./btn";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class Menu extends cc.Component {
+    public static instance: Menu = null;
+
 
     private isPaused: boolean = false;
 
@@ -14,6 +15,7 @@ export default class Menu extends cc.Component {
 
 
     protected onLoad(): void {
+        Menu.instance = this;
 
         this.node.on(cc.Node.EventType.TOUCH_START, this.on_click_Start, this);
         this.node.on(cc.Node.EventType.TOUCH_END, this.on_click_End, this);
