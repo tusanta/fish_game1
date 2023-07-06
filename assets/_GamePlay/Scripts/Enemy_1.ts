@@ -10,6 +10,9 @@ export default class Enemy_1 extends Character {
   @property
   private speed: number = 10; // Tốc độ di chuyển
 
+  @property(cc.Node)
+  layout: cc.Node = null;
+
   @property(cc.Vec3)
   public startPosition: cc.Vec3 = cc.v3(0, 0, 0); // Điểm bắt đầu
   private targetPosition: cc.Vec3 = cc.v3(0, 0, 0); // Điểm đến
@@ -67,10 +70,10 @@ export default class Enemy_1 extends Character {
   }
 
   private randomMovement() {
-    const minX = -cc.winSize.width / 2;
-    const maxX = cc.winSize.width / 2;
-    const minY = -cc.winSize.height / 2;
-    const maxY = cc.winSize.height / 3;
+    const minX = -this.layout.width / 3; 
+    const maxX = this.layout.width  / 3;
+    const minY = -this.layout.height / 3; 
+    const maxY = this.layout.height / 3;
 
     if (this.node.x < minX) { // nếu tọa độ x của Enemy < minx
       this.node.x = minX; // => tọa độ x = minx

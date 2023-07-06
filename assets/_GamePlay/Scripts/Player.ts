@@ -34,6 +34,9 @@ export default class Player extends Character {
   @property
   private isMoving: boolean = false;
 
+  @property(cc.Node)
+  layout: cc.Node = null;
+
 
   protected update(dt: number) {
     const direction = this.joystick.direction; // Lấy vector hướng từ direction của joystick
@@ -66,10 +69,10 @@ export default class Player extends Character {
     this.node.y += posY; //  cập nhật giá trị tọa độ y để di chuyển theo phương y.
 
     // va chạm khung hình 
-    const minX = -cc.winSize.width / 2.16; //cc.winSize.width : chiều rộng cửa sổ trò chơi
-    const maxX = cc.winSize.width / 2.16;
-    const minY = -cc.winSize.height / 2.22; // winSize.height : chiều cao cửa sổ trò  chơi
-    const maxY = cc.winSize.height / 3;
+    const minX = -this.layout.width / 2.45; 
+    const maxX = this.layout.width  /2.45;
+    const minY = -this.layout.height / 2.4; 
+    const maxY = this.layout.height / 2.5;
 
     if (this.node.x < minX) { // nếu tọa độ x của player < minx
       this.node.x = minX; // => tọa độ x = minx

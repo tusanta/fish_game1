@@ -22,15 +22,22 @@ export default class GameManager extends cc.Component {
     @property(cc.Node)
     nextLevel: cc.Node = null;
 
+    @property(cc.Node)
+    nextLevel_reponsive: cc.Node = null;
+
     @property(cc.Animation)
     btnNextLv: cc.Animation = null;
+
+
 
     onLoad() {
         cc.director.getPhysicsManager().enabled = true;
         var manager = cc.director.getCollisionManager();
         manager.enabled = true;
         GameManager.instance = this;
+
     }
+
     public gainScore() {
         this.Score += 1;
         const scoreDisplay = cc.find("Canvas/Main Camera/ScoreLabel").getComponent(cc.Label);
@@ -40,12 +47,11 @@ export default class GameManager extends cc.Component {
             Blades_all.instance.onLevelUp(5);
         } else if (this.Score === 10) {
             Blades_all.instance.onLevelUp(10);
-
         } else if (this.Score === 15) {
             Blades_all.instance.onLevelUp(15);
         } else if (this.Score === 20) {
             Blades_all.instance.onLevelUp(20);
-        } else if(this.Score === 42){
+        } else if (this.Score === 42) {
             Player.instance.node.active = false;
             score.instance.onDespawn();
             Menu.instance.node.active = false;
@@ -56,11 +62,18 @@ export default class GameManager extends cc.Component {
                 this.win.active = false;
             }, 3);
             this.scheduleOnce(() => {
-                this.nextLevel.active = true;
+                const deviceResolution = cc.view.getFrameSize();
+                if (deviceResolution.width < deviceResolution.height) {
+                    this.nextLevel_reponsive.active = true;
+                } else{
+                    this.nextLevel.active = true;
+
+                }
 
             }, 3.5);
             this.scheduleOnce(() => {
                 this.btnNextLv.play("Button_nextLv");
+
 
             }, 4.5);
 
