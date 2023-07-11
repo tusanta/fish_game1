@@ -1,6 +1,5 @@
 import Player from "../Player";
-
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class speed_start extends cc.Component {
@@ -17,16 +16,17 @@ export default class speed_start extends cc.Component {
         this.node.active = false;
     }
 
-    public onSpeed_start(){
+    public onSpeed_start() {
         this.node.active = true;
     }
-    
+
     protected update(dt: number): void {
-        if(this.joystick_demo.active == false){
+        if (this.joystick_demo.active == false) {
             this.node.active = true;
         }
         if (Player.getInstance().node.active == false) {
             this.onDespawn_speed();
         }
+       
     }
 }

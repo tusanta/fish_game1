@@ -17,7 +17,13 @@ export default class btn extends cc.Component {
     public btnUp() {
         this.animation.play("animation_up");
     }
+    public btnDown_reponsive(){
+        this.animation.play("Animation_reponsiveDown");
+    }
 
+    public btnUp_reponsive(){
+        this.animation.play("Animation_reponsiveUp");
+    }
   
   
 

@@ -71,8 +71,8 @@ export default class Player extends Character {
     // va chạm khung hình 
     const minX = -this.layout.width / 2.45; 
     const maxX = this.layout.width  /2.45;
-    const minY = -this.layout.height / 2.4; 
-    const maxY = this.layout.height / 2.5;
+    const minY = -this.layout.height / 2.5; 
+    const maxY = this.layout.height / 3;
 
     if (this.node.x < minX) { // nếu tọa độ x của player < minx
       this.node.x = minX; // => tọa độ x = minx

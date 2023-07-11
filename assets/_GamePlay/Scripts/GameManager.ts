@@ -22,20 +22,16 @@ export default class GameManager extends cc.Component {
     @property(cc.Node)
     nextLevel: cc.Node = null;
 
-    @property(cc.Node)
-    nextLevel_reponsive: cc.Node = null;
-
+    @property(cc.Animation)
+    animation_netxlv: cc.Animation = null;
     @property(cc.Animation)
     btnNextLv: cc.Animation = null;
-
-
 
     onLoad() {
         cc.director.getPhysicsManager().enabled = true;
         var manager = cc.director.getCollisionManager();
         manager.enabled = true;
         GameManager.instance = this;
-
     }
 
     public gainScore() {
@@ -62,23 +58,18 @@ export default class GameManager extends cc.Component {
                 this.win.active = false;
             }, 3);
             this.scheduleOnce(() => {
-                const deviceResolution = cc.view.getFrameSize();
-                if (deviceResolution.width < deviceResolution.height) {
-                    this.nextLevel_reponsive.active = true;
-                } else{
-                    this.nextLevel.active = true;
+                this.nextLevel.active = true;
+                if (cc.view.getFrameSize().width < cc.view.getFrameSize().height) {
+                 this.animation_netxlv.play("nextlevel_reponsive");
 
+                } else {
+                    this.animation_netxlv.play("animation_Nextlevel");
                 }
 
             }, 3.5);
             this.scheduleOnce(() => {
                 this.btnNextLv.play("Button_nextLv");
-
-
             }, 4.5);
-
         }
-
     }
-
 }

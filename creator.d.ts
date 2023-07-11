@@ -3021,7 +3021,7 @@ declare namespace cc {
 	     - 将计时器 & 渲染与显示器的刷新频率同步。<br/>
 	     - 只支持动画的间隔 1/60 1/30 & 1/15。<br/>
 	</p> */
-	export class Director extends EventTarget {		
+	export class Director extends EventTarget {
 		/**
 		!#en
 		Converts a view coordinate to an WebGL coordinate<br/>
