@@ -44,7 +44,6 @@ export default class Character extends cc.Component {
 
         if (cc.view.getFrameSize().width < cc.view.getFrameSize().height) {         
             this.animation_button.play("Animation_reponsiveDown");
-            console.log("dọc");
             
 
         } else {             

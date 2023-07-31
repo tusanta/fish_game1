@@ -6,7 +6,8 @@
     "camera",
     "Enemy",
     "Blades",
-    "level"
+    "level",
+    "ui"
   ],
   "collision-matrix": [
     [
@@ -58,6 +59,16 @@
       false
     ],
     [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
       false,
       false,
       false,

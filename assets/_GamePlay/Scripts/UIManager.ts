@@ -1,4 +1,3 @@
-import Menu from "./Menu";
 import score from "./score";
 const { ccclass, property } = cc._decorator;
 
@@ -39,14 +38,20 @@ export default class UIManager extends cc.Component {
 
     @property(cc.Node)
     nextLevel: cc.Node = null;
- 
-    protected lateUpdate(dt: number): void {
-        this.changeRotation(cc.view.getFrameSize().width > cc.view.getFrameSize().height ? 1 : -1);  
 
-        // if(cc.winSize <= cc.size(750,750)){
-            
-        //     console.log("===");
+    @property(cc.Node)
+    node_neo_1: cc.Node = null;
+
+    @property(cc.Node)
+    node_neo_2: cc.Node = null;
+
+    protected lateUpdate(dt: number): void {
+        this.changeRotation(cc.view.getFrameSize().width > cc.view.getFrameSize().height ? 1 : -1);
+
+        // if(cc.view.getVisibleSize() < cc.size(740,745)){
         // }
+
+
     }
 
     public changeRotation(horizontal: number) {
@@ -56,10 +61,13 @@ export default class UIManager extends cc.Component {
 
             //xoay ngang
             if (this.horizontal == 1) {
-                score.instance.node.setPosition(0,220);
-                Menu.instance.node.setPosition(cc.view.getFrameSize().width / 1.7 , cc.view.getFrameSize().height / 1.8);
-                this.speedUp.setPosition(350 , 0);
-                this.hand.setPosition(280, 80);
+                score.instance.node.setPosition(0, 220);
+                this.node_neo_1.active = true;
+                this.node_neo_2.active = false;
+
+                this.speedUp.setPosition(400, 0);
+                this.hand.setPosition(330, 80);
+                this.hand.setRotation(0)
                 this.string_upspeed.setPosition(0, -200);
                 this.joyStick_Start.setPosition(-250, 40)
 
@@ -68,7 +76,6 @@ export default class UIManager extends cc.Component {
                         this.fish_string.setPosition(-170, -1150);
                         this.image.setPosition(-170, -950);
                         this.button_all.setPosition(150, -1050);
-
                     }, 0.01);
                 }
 
@@ -82,10 +89,14 @@ export default class UIManager extends cc.Component {
             }
             //xoay doc
             else if (this.horizontal == -1) {
-                score.instance.node.setPosition(0,480);
-                Menu.instance.node.setPosition(cc.view.getFrameSize().width / 1.3 , cc.view.getFrameSize().height/ 1.2);
-                this.speedUp.setPosition(300 , -550);
-                this.hand.setPosition(220, -470); 
+                score.instance.node.setPosition(0, 480);
+                this.node_neo_2.active = true;
+                this.node_neo_1.active = false;
+
+
+                this.speedUp.setPosition(250, -500);
+                this.hand.setPosition(320, -580);
+                this.hand.setRotation(190)
                 this.string_upspeed.setPosition(0, -600);
                 this.joyStick_Start.setPosition(-150, -450)
 
